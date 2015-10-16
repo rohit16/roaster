@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-RSpec.describe "ShidtDetails", type: :request do
-  describe "GET /shidt_details" do
-    it "works! (now write some real specs)" do
+RSpec.describe 'ShidtDetails', type: :request do
+  describe 'GET /shidt_details' do
+    it 'works! (now write some real specs)' do
       get shidt_details_path
       expect(response).to have_http_status(200)
     end

@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   has_one :shift_detail, inverse_of: :user, dependent: :restrict_with_exception
 
   searchable do
-  	text :name
-  	text :email
+    text :name
+    text :email
   end
 end

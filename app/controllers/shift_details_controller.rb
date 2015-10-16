@@ -26,7 +26,7 @@ class ShiftDetailsController < ApplicationController
   # POST /shift_details.json
   def create
     @shift_detail = ShiftDetail.new(shift_detail_params)
-    @shift_detail.user=current_user
+    @shift_detail.user = current_user
 
     respond_to do |format|
       if @shift_detail.save
@@ -64,14 +64,15 @@ class ShiftDetailsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_shift_detail
-      @shift_detail = ShiftDetail.find(params[:id])
-        @shift_detail.user=current_user
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def shift_detail_params
-      params.require(:shift_detail).permit(:name, :start_time, :end_time, :description, :user)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_shift_detail
+    @shift_detail = ShiftDetail.find(params[:id])
+    @shift_detail.user = current_user
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def shift_detail_params
+    params.require(:shift_detail).permit(:name, :start_time, :end_time, :description, :user)
+  end
 end

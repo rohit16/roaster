@@ -4,12 +4,13 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    #@users = User.all
+    # @users = User.all
     @search = User.search do
-     fulltext(params[:search])
- end
-  @users = @search.results
+      fulltext(params[:search])
+    end
+    @users = @search.results
   end
+
   # GET /users/1
   # GET /users/1.json
   def show
@@ -65,13 +66,14 @@ class UsersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_user
-      @user = User.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def user_params
-      params.require(:user).permit(:name, :mobile, :password, :emp_code, :password_confirmation)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_user
+    @user = User.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def user_params
+    params.require(:user).permit(:name, :mobile, :password, :emp_code, :password_confirmation)
+  end
 end
